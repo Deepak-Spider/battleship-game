@@ -182,7 +182,8 @@ def shoot_bullet():
 
     bullets_left -= 1
 
-# Determine if a ship is completely sunk after a bullet hit
+# Commit Message: Implement ship sunk check
+# Description: Determine if a ship is completely sunk after a bullet hit
 def check_for_ship_sunk(row, col):
     global ship_positions
     global grid
@@ -195,4 +196,22 @@ def check_for_ship_sunk(row, col):
         if start_row <= row <= end_row and start_col <= col <= end_col:
             # Ship found, now check if its all sunk
             for r in range(start_row, end_row):
-                for c in range(start_col, end_col
+                for c in range(start_col, end_col):
+                    if grid[r][c] != "X":
+                        return False
+    return True
+
+
+# Check for game over based on ships sunk or bullets remaining
+def check_for_game_over():
+    global num_of_ships_sunk
+    global num_of_ships
+    global bullets_left
+    global game_over
+
+    if num_of_ships == num_of_ships_sunk:
+        print("Congrats you won!")
+        game_over = True
+    elif bullets_left <= 0:
+        print("Sorry, you lost! You ran out of bullets, try again next time!")
+        game_over = True
