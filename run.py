@@ -36,3 +36,10 @@ num_of_ships_sunk = 0
 ship_positions = [[]]
 # Global variable for alphabet
 alphabet = "ABCDEFGHIJKLMN"
+
+# Create a 5x5 grid filled with dots and global variables for grid size
+def create_grid():
+    global grid
+    global grid_size
+
+    grid = [['.' for _ in range(grid_size)] for _ in range(grid_size)]
