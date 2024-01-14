@@ -215,3 +215,20 @@ def check_for_game_over():
     elif bullets_left <= 0:
         print("Sorry, you lost! You ran out of bullets, try again next time!")
         game_over = True
+
+
+# Complete the main loop and handle game over scenarios
+def main():
+    global game_over
+
+    print("-----Welcome to Battleships-----")
+    print(f"You have {bullets_left} bullets to take down {num_of_ships} ships, may the battle begin!")
+
+    create_grid()
+
+    while not game_over:
+        print_grid()
+        print(f"Number of ships remaining: {num_of_ships - num_of_ships_sunk}")
+        print(f"Number of bullets left: {bullets_left}")
+        shoot_bullet()
+        check_for_game_over()
