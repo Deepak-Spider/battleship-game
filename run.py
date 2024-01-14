@@ -44,7 +44,7 @@ def create_grid():
 
     grid = [['.' for _ in range(grid_size)] for _ in range(grid_size)]
 
-Functions for validating and placing ships on the grid
+#Functions for validating and placing ships on the grid
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
     global grid
     global ship_positions
@@ -125,4 +125,39 @@ def print_grid():
     for i in range(len(grid[0])):
         print(str(i), end=" ")
     print("")
+
+# Functions for accepting valid bullet placement from the user
+def accept_valid_bullet_placement():
+    global alphabet
+    global grid
+
+    is_valid_placement = False
+    row = -1
+    col = -1
+    while is_valid_placement is False:
+        placement = input("Enter row (A-E) and column (0-4) such as B3: ")
+        placement = placement.upper()
+        if len(placement) <= 0 or len(placement) > 2:
+            print("Error: Please enter only one row and column such as B3")
+            continue
+        row = placement[0]
+        col = placement[1]
+        if not row.isalpha() or not col.isnumeric():
+            print("Error: Please enter letter (A-E) for row and (0-4) for column")
+            continue
+        row = alphabet.find(row)
+        if not (-1 < row < grid_size):
+            print("Error: Please enter letter (A-E) for row and (0-4) for column")
+            continue
+        col = int(col)
+        if not (-1 < col < grid_size):
+            print("Error: Please enter letter (A-E) for row and (0-4) for column")
+            continue
+        if grid[row][col] == "#" or grid[row][col] == "X":
+            print("You have already shot a bullet here, pick somewhere else")
+            continue
+        if grid[row][col] == "." or grid[row][col] == "O":
+            is_valid_placement = True
+
+    return row, col
 
