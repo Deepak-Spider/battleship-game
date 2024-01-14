@@ -161,3 +161,24 @@ def accept_valid_bullet_placement():
 
     return row, col
 
+
+# Update the grid based on user's bullet placement
+def shoot_bullet():
+    global grid
+    global num_of_ships_sunk
+    global bullets_left
+
+    row, col = accept_valid_bullet_placement()
+    print("")
+
+    if grid[row][col] == ".":
+        print("You missed, no ship was shot")
+        grid[row][col] = "#"
+    elif grid[row][col] == "O":
+        print("You hit!", end=" ")
+        grid[row][col] = "X"
+        num_of_ships_sunk += 1
+        print("A ship was completely sunk!")
+
+    bullets_left -= 1
+
