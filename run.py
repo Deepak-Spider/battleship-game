@@ -87,3 +87,25 @@ def try_to_place_ship_on_grid(row, col, direction, length):
         end_row = row + length
 
     return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
+
+#Randomly place ships on the grid during grid creation
+def create_grid():
+    global grid
+    global grid_size
+    global num_of_ships
+    global ship_positions
+
+    random.seed(time.time())
+
+    grid = [['.' for _ in range(grid_size)] for _ in range(grid_size)]
+
+    num_of_ships_placed = 0
+    ship_positions = []
+
+    while num_of_ships_placed != num_of_ships:
+        random_row = random.randint(0, grid_size - 1)
+        random_col = random.randint(0, grid_size - 1)
+        direction = random.choice(["left", "right", "up", "down"])
+        ship_size = random.randint(3, 5)
+        if try_to_place_ship_on_grid(random_row, random_col, direction, ship_size):
+            num_of_ships_placed += 1
