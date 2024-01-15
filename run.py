@@ -37,15 +37,21 @@ ship_positions = [[]]
 # Global variable for alphabet
 alphabet = "ABCDEFGHIJKLMN"
 
-# Create a 5x5 grid filled with dots and global variables for grid size
+
 def create_grid():
+    """
+    Create a 5x5 grid filled with dots and global variables for grid size
+    """
     global grid
     global grid_size
 
     grid = [['.' for _ in range(grid_size)] for _ in range(grid_size)]
 
-#Functions for validating and placing ships on the grid
+
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
+    """
+    Functions for validating and placing ships on the grid
+    """
     global grid
     global ship_positions
 
@@ -61,6 +67,7 @@ def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
             for c in range(start_col, end_col):
                 grid[r][c] = "O"
     return all_valid
+
 
 def try_to_place_ship_on_grid(row, col, direction, length):
     global grid_size
@@ -88,8 +95,11 @@ def try_to_place_ship_on_grid(row, col, direction, length):
 
     return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
 
-#Randomly place ships on the grid during grid creation
+
 def create_grid():
+    """
+    Randomly place ships on the grid during grid creation
+    """
     global grid
     global grid_size
     global num_of_ships
@@ -110,8 +120,11 @@ def create_grid():
         if try_to_place_ship_on_grid(random_row, random_col, direction, ship_size):
             num_of_ships_placed += 1
 
-# Display the current state of the game grid
+
 def print_grid():
+    """
+    Display the current state of the game grid
+    """
     global grid
     global alphabet
 
@@ -126,8 +139,11 @@ def print_grid():
         print(str(i), end=" ")
     print("")
 
-# Functions for accepting valid bullet placement from the user
+
 def accept_valid_bullet_placement():
+    """
+    Functions for accepting valid bullet placement from the user
+    """
     global alphabet
     global grid
 
@@ -162,8 +178,10 @@ def accept_valid_bullet_placement():
     return row, col
 
 
-# Update the grid based on user's bullet placement
 def shoot_bullet():
+    """
+    Update the grid based on user's bullet placement
+    """
     global grid
     global num_of_ships_sunk
     global bullets_left
@@ -182,9 +200,11 @@ def shoot_bullet():
 
     bullets_left -= 1
 
-# Commit Message: Implement ship sunk check
-# Description: Determine if a ship is completely sunk after a bullet hit
+
 def check_for_ship_sunk(row, col):
+    """
+    Determine if a ship is completely sunk after a bullet hit
+    """
     global ship_positions
     global grid
 
@@ -202,8 +222,10 @@ def check_for_ship_sunk(row, col):
     return True
 
 
-# Check for game over based on ships sunk or bullets remaining
 def check_for_game_over():
+    """
+    Check for game over based on ships sunk or bullets remaining
+    """
     global num_of_ships_sunk
     global num_of_ships
     global bullets_left
@@ -217,8 +239,11 @@ def check_for_game_over():
         game_over = True
 
 
-# Complete the main loop and handle game over scenarios
+
 def main():
+    """
+    Complete the main loop and handle game over scenarios
+    """
     global game_over
 
     print("-----Welcome to Battleships-----")
@@ -232,3 +257,7 @@ def main():
         print(f"Number of bullets left: {bullets_left}")
         shoot_bullet()
         check_for_game_over()
+
+
+if __name__ == '__main__':
+    main()
