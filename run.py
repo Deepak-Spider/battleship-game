@@ -243,6 +243,19 @@ def check_for_game_over():
         game_over = True
 
 
+# ASCII art 
+def print_ascii_art():
+    print("                                     # #  ( )")
+    print("                                  ___#_#___|__")
+    print("                              _  |____________|  _")
+    print("                       _=====| | |            | | |==== _")
+    print("                 =====| |.---------------------------. | |====")
+    print("   <--------------------'   .  .  .  .  .  .  .  .   '--------------/")
+    print("     \\                                                             /")
+    print("      \\_______________________________________________WWS_________/")
+    print("  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
+    print("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
+    print("   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
 
 def main():
     """
@@ -250,8 +263,8 @@ def main():
     """
     global game_over
 
-    print("-----Welcome to Battleships-----")
-    print(f"You have {bullets_left} bullets to take down {num_of_ships} ships, may the battle begin!")
+    print_ascii_art()
+    print("\n-----Welcome, Admiral! Prepare for the ultimate naval showdown.-----\n")
 
     create_grid()
 
