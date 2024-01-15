@@ -123,7 +123,7 @@ def create_grid():
 
 def print_grid():
     """
-    Display the current state of the game grid
+    Display only hits and misses, conceal ship positions
     """
     global grid
     global alphabet
@@ -131,13 +131,17 @@ def print_grid():
     for row in range(len(grid)):
         print(alphabet[row], end=") ")
         for col in range(len(grid[row])):
-            print(grid[row][col], end=" ")
+            if grid[row][col] == "X" or grid[row][col] == "#":
+                print(grid[row][col], end=" ")
+            else:
+                print(".", end=" ")
         print("")
 
     print("  ", end=" ")
     for i in range(len(grid[0])):
         print(str(i), end=" ")
     print("")
+
 
 
 def accept_valid_bullet_placement():
