@@ -38,7 +38,6 @@ ship_positions = [[]]
 # Global variable for alphabet
 alphabet = "ABCDEFGHIJKLMN"
 
-
 def create_grid():
     """
     Create a 5x5 grid filled with dots and global variables for grid size
@@ -144,7 +143,6 @@ def print_grid():
     print("")
 
 
-
 def accept_valid_bullet_placement():
     """
     Functions for accepting valid bullet placement from the user
@@ -244,6 +242,10 @@ def check_for_game_over():
         game_over = True
 
 
+def print_final_grid():
+    print("\nFinal Grid:")
+    print_grid()
+
 def main():
     """
     Complete the main loop and handle game over scenarios
@@ -261,6 +263,7 @@ def main():
         print(f"Number of bullets left: {bullets_left}")
         shoot_bullet()
         check_for_game_over()
+    print_final_grid()
 
 
 if __name__ == '__main__':
