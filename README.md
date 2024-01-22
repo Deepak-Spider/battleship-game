@@ -4,7 +4,7 @@ This Battleship game is a Python terminal game which is hosted on Heroku. The li
 
 ![readme hero image](assets/images/hero_image.png)
 
-# Table of Contents
+# Contents
 
 * [How to Play](<#How-To-Play>)
 * [Features](#Features)
@@ -23,11 +23,11 @@ This Battleship game is a Python terminal game which is hosted on Heroku. The li
 
 * Game Setup: The game is played on a 5x5 grid. Three ships of variable lengths are randomly placed on the grid. The goal is to sink all the ships within the given number of bullets.
 * Ammunition: The player is provided with 10 bullets at the start of the game.
-* Taking a Shot: To take a shot, choose a row and column on the grid. For example, B3 indicates the fourth column in the second row.
+* Taking a Shot: To take a shot, choose a row and column on the grid. For example, B3 indicates the second row in the fourth column.
 * Hit or Miss: After each shot, the grid will be updated to show whether the shot was a hit or a miss.
 * Grid Legend:
   * (".") : Water or empty space
-  * ("X") : Part of a ship that has been hit
+  * ("X") : A ship that has been hit
   * ("#") : Shot in the water, indicating a miss
 * Ship Direction: The ship will be in one of four directions: left, right, up, or down. Ships cannot be placed diagonally.
 
@@ -35,13 +35,13 @@ This Battleship game is a Python terminal game which is hosted on Heroku. The li
 The player will win by sinking all ships before running out of bullets.
 The game is lost if the player is run out of bullets before sinking all ships.
 
-
-[Back to top](<#Table of Contents>)
+[Back to top](<#contents>)
 
 # Features
 ## Existing Features
 * Getting Started
-  * A Battleship art is displayed at the start of the game and the player is greeted as 'Admiral' to create excitment of a war game.
+
+To create excitement for a war game, battleship art is displayed at the beginning of the game and the player is greeted as a 'Admiral'.
 
  ![Battleships logo](assets/images/welcome_board.png)
 
@@ -54,13 +54,13 @@ The game is lost if the player is run out of bullets before sinking all ships.
 
 ![Game Grid](assets/images/game_grid.png)
 * Grid Representation:
-The game grid displays hits, misses, number of bullets left and remaining ships after each bullet is shot.
+The game grid displays hits, misses, number of bullets left and remaining ships after each bullet is shot. Final grid is displayed at the end of the game.
 
 * Player feedback: 
 Feedback is constantly displayed to the player during the game.
-The player must enter coordinates to start or continue the game. They enter a row or y-axis cordinate (A-E) first, followed by a column or x-axis coordinate (0-4). 
+The player must enter coordinates to start and continue the game. They enter a row or y-axis cordinate (A-E) first, followed by a column or x-axis coordinate (0-4). 
 
-If they enter an invalid values, they are prompted to enter a valid one. 
+If they enter invalid values, they are prompted to enter a valid one. 
 
 ![Invalid Value](assets/images/invalid_value.png)
 
@@ -86,7 +86,7 @@ The game recognizes when a ship is completely sunk after a successful hit.
 
    ![ Lost](assets/images/lost.png)
 
-[Back to top](<#Table of Contents>)
+[Back to top](<#contents>)
 
 ## Future Features
 
@@ -106,13 +106,13 @@ The game recognizes when a ship is completely sunk after a successful hit.
 
 * Achievements and Challenges: To introduce in-game achievements and challenges to provide additional goals for players to strive for.
 
-[Back to top](<#Table of Contents>)
+[Back to top](<#contents>)
 
-# Technology
+# Technologies
 
-* Python: The primary programming language used for developing the Battleships game. Python provides simplicity and versatility.
+* Python: The programming language used for developing this Battleships game. Python provides simplicity and versatility.
 
-* Gitpod: Gitpod was utilized as the integrated development environment (IDE) for coding and testing the application. Its cloud-based nature allows for seamless collaboration and efficient development workflows.
+* Gitpod: Gitpod was utilized as the integrated development environment (IDE) for coding and testing the application. Its cloud-based nature allows for seamless and efficient development workflows.
 
 * GitHub : GitHub serves as the version control platform for the project, enabling version tracking, and code management. The repository is hosted on GitHub.
 
@@ -120,7 +120,7 @@ The game recognizes when a ship is completely sunk after a successful hit.
 
 * ASCII Art: ASCII art is used to enhance the visual appeal of the game. The battleship_art module includes ASCII art representations, adding a creative touch to the game interface.
 
-[Back to top](<#Table of Contents>)
+[Back to top](<#contents>)
 
 # Data Model
 
@@ -149,14 +149,14 @@ Each cell in the grid represents a position on the battlefield and can be in one
 
 **ship_positions** : A list containing the positions of the ships on the grid.
 
-[Back to top](<#Table of Contents>)
+[Back to top](<#contents>)
 
 # Testing
 
 ## PEP 8 Validation
 * I've conducted manual testing on this project, carrying out the following steps:
 
-   - Ran the code through a PEP8 linter and verified that there are no issues.
+   - Ran the code through a PEP8 linter and verified that there are no critical issues.
    - Provided invalid inputs, such wrong combination, inputs beyond specified bounds, and repeating the same input.
    - Conducted testing in both my local terminal and the Code Institute Heroku terminal.
 
@@ -174,15 +174,15 @@ Each cell in the grid represents a position on the battlefield and can be in one
 
 ### Validator Testing
  
- * PEP8 : No errors found.
+ * PEP8 : No critical errors found.
 
-[Back to top](<#Table of Contents>)
+[Back to top](<#contents>)
 
 # Deployment
 
 This project was deployed using Code Institute's simulated terminal for Heroku.
 
-Steps for deployment
+Steps for deployment is as follows ;
 
 * Setup Account on Heroku : Create a Heroku account if not already done.
 
@@ -225,7 +225,7 @@ Ensure the buildpacks are in the following order: Python (top) and node.js (unde
 
 * Running the App: The mock terminal will be up and running automatically. Restart the game anytime by clicking the 'RUN PROGRAM' button.
 
-[Back to top](<#Table of Contents>)
+[Back to top](<#contents>)
 
 # Credits
 
@@ -242,6 +242,7 @@ Ensure the buildpacks are in the following order: Python (top) and node.js (unde
 * The tutors, mentors and cohort facilator at Code Institute.
 * This game is built as part of my project for the Full Stack Software Development Diploma at the Code Institute.
 
+[Back to top](<#contents>)
 
 
 

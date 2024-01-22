@@ -15,9 +15,9 @@ from battleship_art import print_battleship_art
         else, you lose
 
     Legend:
-    1. "." = water or empty space
-    2. "X" = part of ship that was hit with bullet
-    3. "#" = shot in the water, a miss because it hit no ship
+    1. "." = Water or empty space
+    2. "X" = A ship was hit with bullet
+    3. "#" = Shot in the water, a miss because it hit no ship
 """
 
 # Global variable for grid
