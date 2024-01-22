@@ -37,35 +37,27 @@ ship_positions = [[]]
 # Global variable for alphabet
 alphabet = "ABCDEFGHIJKLMN"
 
+
 def create_grid():
     """
-    Create a 5x5 grid filled with dots and global variables for grid size
+    Create a grid, randomly placing ships on it during grid creation.
     """
-    global grid
-    global grid_size
+    global grid, grid_size, num_of_ships, ship_positions
+
+    random.seed(time.time())
 
     grid = [['.' for _ in range(grid_size)] for _ in range(grid_size)]
 
+    num_of_ships_placed = 0
+    ship_positions = []
 
-def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
-    """
-    Functions for validating and placing ships on the grid
-    """
-    global grid
-    global ship_positions
-
-    all_valid = True
-    for r in range(start_row, end_row):
-        for c in range(start_col, end_col):
-            if grid[r][c] != ".":
-                all_valid = False
-                break
-    if all_valid:
-        ship_positions.append([start_row, end_row, start_col, end_col])
-        for r in range(start_row, end_row):
-            for c in range(start_col, end_col):
-                grid[r][c] = "O"
-    return all_valid
+    while num_of_ships_placed != num_of_ships:
+        random_row = random.randint(0, grid_size - 1)
+        random_col = random.randint(0, grid_size - 1)
+        direction = random.choice(["left", "right", "up", "down"])
+        ship_size = random.randint(3, 5)
+        if try_to_place_ship_on_grid(random_row, random_col, direction, ship_size):
+            num_of_ships_placed += 1
 
 
 def try_to_place_ship_on_grid(row, col, direction, length):
@@ -95,29 +87,25 @@ def try_to_place_ship_on_grid(row, col, direction, length):
     return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
 
 
-def create_grid():
+def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
     """
-    Randomly place ships on the grid during grid creation
+    Functions for validating and placing ships on the grid
     """
     global grid
-    global grid_size
-    global num_of_ships
     global ship_positions
 
-    random.seed(time.time())
-
-    grid = [['.' for _ in range(grid_size)] for _ in range(grid_size)]
-
-    num_of_ships_placed = 0
-    ship_positions = []
-
-    while num_of_ships_placed != num_of_ships:
-        random_row = random.randint(0, grid_size - 1)
-        random_col = random.randint(0, grid_size - 1)
-        direction = random.choice(["left", "right", "up", "down"])
-        ship_size = random.randint(3, 5)
-        if try_to_place_ship_on_grid(random_row, random_col, direction, ship_size):
-            num_of_ships_placed += 1
+    all_valid = True
+    for r in range(start_row, end_row):
+        for c in range(start_col, end_col):
+            if grid[r][c] != ".":
+                all_valid = False
+                break
+    if all_valid:
+        ship_positions.append([start_row, end_row, start_col, end_col])
+        for r in range(start_row, end_row):
+            for c in range(start_col, end_col):
+                grid[r][c] = "O"
+    return all_valid
 
 
 def print_grid():
@@ -245,6 +233,7 @@ def print_final_grid():
     print("\nFinal Grid:")
     print_grid()
 
+
 def main():
     """
     Complete the main loop and handle game over scenarios
@@ -252,7 +241,7 @@ def main():
     global game_over
 
     print_battleship_art()
-    print("\n-----Welcome, Admiral! Prepare for the ultimate naval showdown.-----\n")
+    print("\n--Welcome, Admiral! Prepare for the ultimate naval showdown.--\n")
 
     create_grid()
 
